@@ -1,0 +1,23 @@
+.sidebar {
+  grid-area: sd;
+  background: #d7c8bc;
+  padding: 40px;
+}
+.item {
+  line-height: 20px;
+}
+
+.item a {
+  font: Graphik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 32px;
+  color: #422f24;
+  text-decoration: none;
+}
+
+.item a.active {
+  color: rgb(245, 243, 250);
+  text-shadow: 5px 5px 20px rgba(75, 16, 16, 0.89);
+}

@@ -1,0 +1,12 @@
+.formComponent textarea,
+.formComponent input {
+  border: solid rgb(225, 196, 65) 2px;
+}
+
+.formComponent.error textarea {
+  border: solid red 2px;
+}
+
+.formComponent.error input {
+  border: solid rgb(204, 0, 255) 2px;
+}

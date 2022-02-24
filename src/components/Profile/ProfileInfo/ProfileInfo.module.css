@@ -1,0 +1,25 @@
+.description {
+  padding: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.description img {
+  height: 250px;
+}
+
+.status {
+  padding-left: 20px;
+}
+
+.aboutMe {
+  margin-top: 20px;
+  color: brown;
+}
+
+.wallPaper img {
+  height: 200px;
+  width: calc(100vw - 215px);
+  object-fit: cover;
+}

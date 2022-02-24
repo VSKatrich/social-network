@@ -1,0 +1,63 @@
+.dialogs {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+  padding: 30px;
+}
+
+.dialogItems {
+  margin-left: 20px;
+  text-align: left;
+}
+
+.dialog a {
+  font: Graphik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 70px;
+  color: #1f140e;
+  text-decoration: none;
+}
+.dialog img {
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+  vertical-align: middle;
+  margin-right: 10px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+.dialog a.active {
+  color: rgb(223, 183, 255);
+}
+
+.massageItems {
+  margin-left: 30px;
+}
+
+.massage {
+  font: Graphik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 70px;
+  color: #1f140e;
+}
+.addMassage area {
+  width: 50px;
+}
+
+.addMassage button {
+  background-color: #86614c;
+  color: white;
+  border: cornflowerblue;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+}
+.addMassage button:hover {
+  background-color: #69442e;
+}

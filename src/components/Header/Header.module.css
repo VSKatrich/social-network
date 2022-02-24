@@ -1,0 +1,24 @@
+.header {
+  grid-area: hd;
+  background-color: rgb(40, 15, 1);
+
+  /* READ ABOUT THIS */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.header img {
+  width: 100px;
+}
+
+.login a {
+  color: blanchedalmond;
+}
+
+.login {
+  color: rgb(237, 228, 100);
+  display: flex;
+}
