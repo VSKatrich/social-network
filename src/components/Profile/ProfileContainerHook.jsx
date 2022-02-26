@@ -7,7 +7,8 @@ import {
   getUserStatus,
   setUsersProfile,
   updateUserStatus,
-  updateMainPhoto
+  updateMainPhoto,
+  updateUserData
 } from '../../Redux/profile-reducer';
 import { getMyId } from '../../Redux/selectors';
 import ProfileContainer from './ProfileContainerClass';
@@ -46,6 +47,7 @@ const ProfileUseParams = (props) => {
       getUserProfile={props.getUserProfile}
       updateUserStatus={props.updateUserStatus}
       updateMainPhoto={props.updateMainPhoto}
+      updateUserData={props.updateUserData}
     />
   )
 }
@@ -60,7 +62,7 @@ let mapStateToProps = (state) => ({
 export default compose(
   connect(mapStateToProps, {
     setUsersProfile, getUserProfile, getUserStatus,
-    updateUserStatus, updateMainPhoto
+    updateUserStatus, updateMainPhoto, updateUserData
   }),
   // withAuthNavigate
 )(ProfileUseParams)

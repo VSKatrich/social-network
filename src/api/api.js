@@ -79,6 +79,11 @@ export const profileAPI = {
         }
       })
     )
-  }
+  },
 
+  updateUserData(userData) {
+    return (
+      instance.put(`profile`, userData)
+    )
+  }
 }

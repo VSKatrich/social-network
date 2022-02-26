@@ -27,6 +27,7 @@ class ProfileContainer extends React.Component {
           updateUserStatus={this.props.updateUserStatus}
           isOwner={this.props.isOwner}
           updateMainPhoto={this.props.updateMainPhoto}
+          updateUserData={this.props.updateUserData}
         />
       </div>
     )
