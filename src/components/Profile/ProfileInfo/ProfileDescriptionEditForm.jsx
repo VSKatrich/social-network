@@ -1,6 +1,7 @@
 import { Field, Form } from "react-final-form";
 import { Input } from "../../FormComponents/FormComponents";
 import { composeValidators, maxLengthCreator, required } from "../../utils/validators/validators";
+import style from './ProfileInfo.module.css'
 
 const EditDescriptionForm = ({ updateUserData, profile, setEditMode }) => {
 
@@ -31,7 +32,20 @@ const EditDescriptionForm = ({ updateUserData, profile, setEditMode }) => {
               <b>My professional skills</b>: <Field name='lookingForAJobDescription'
                 component={Input}
                 validate={composeValidators(maxLengthCreator(20), required)} />
+              <div>
+                <b>Contacts:</b>
+                {Object.keys(profile.contacts).map(key => {
+                  return (
+                    <div className={style.contact}>
+                      {key}: <Field name={'contacts.' + key}
+                        component={Input}
+                        validate={composeValidators(maxLengthCreator(100))} />
+                    </div>
+                  )
+                })}
+              </div>
             </div>
+
             <div>
               <button type='submit' disabled={submitting} > save </button>
             </div>

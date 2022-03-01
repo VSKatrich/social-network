@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Preloader from './components/common/preloader/Preloader';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
@@ -29,6 +29,7 @@ class App extends React.Component {
         <Navbar />
         <div className='app-wrapper-content'>
           <Routes>
+            <Route path="/" element={<Navigate to='/profile/me' />} />
             <Route path="/profile/:userId" element={<ProfileContainerHook />} />
             <Route path="/dialogs/" element={<DialogsContainer />} />
             <Route path="/news/" element={<News />} />
@@ -36,6 +37,7 @@ class App extends React.Component {
             <Route path="/settings/" element={<Settings />} />
             <Route path="/users/" element={<UsersContainer />} />
             <Route path="/login" element={<Login />} />
+            <Route path="*" element={<div>Sorry, this page isn't available. </div>} />
           </Routes>
         </div>
       </div>

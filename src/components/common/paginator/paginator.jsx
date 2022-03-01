@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styleObj from './paginator.module.css';
+import cn from 'classnames';
 
 const Paginator = ({ pageSize, totalItemsCount, onClickChange, currentPage, portionSize = 20 }) => {
   const pages = [];
@@ -14,7 +15,7 @@ const Paginator = ({ pageSize, totalItemsCount, onClickChange, currentPage, port
   const rightPortionCount = portionNumber * portionSize
 
   return (
-    <div >
+    <div className={styleObj.paginator} >
       {portionNumber > 1 &&
         <button onClick={() => { setPortionNumber(portionNumber - 1) }}> prev </button>}
 
@@ -23,15 +24,17 @@ const Paginator = ({ pageSize, totalItemsCount, onClickChange, currentPage, port
         .filter(p => p >= leftPortionCount && p <= rightPortionCount)
         .map(p => {
           return <span key={p}
-            className={currentPage === p && styleObj.selectedPage}
+            className={cn({ [styleObj.selectedPage]: currentPage === p }, styleObj.pageNumber)}
             onClick={(e) => { onClickChange(p) }}
           > {p} </span>
         })}
 
-      {portionCount > portionNumber &&
-        <button onClick={() => { setPortionNumber(portionNumber + 1) }}> next </button>}
+      {
+        portionCount > portionNumber &&
+        <button onClick={() => { setPortionNumber(portionNumber + 1) }}> next </button>
+      }
 
-    </div>
+    </div >
   )
 };
 
