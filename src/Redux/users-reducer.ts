@@ -1,4 +1,5 @@
-import { usersAPI } from "../api/api"
+import { usersAPI } from "../api/api";
+import { UsersType } from './../types/types';
 
 let FOLLOW = 'FOLLOW'
 let UNFOLLOW = 'UNFOLLOW'
@@ -8,16 +9,20 @@ let SET_TOTAL_COUNT = 'SET_TOTAL_COUNT'
 let SET_IS_FETCHING = 'SET_IS_FETCHING'
 let SET_IS_FOLLOWING_PROGRESS = 'SET_IS_FOLLOWING_PROGRESS'
 
+
+
 let initialState = {
-  users: [],
+  users: [] as Array<UsersType>,
   pageSize: 100,
   totalCount: 0,
   currentPage: 1,
   isFetching: false,
-  isFollowingProgress: []
+  isFollowingProgress: [] as Array<number> //array user`s id
 }
 
-const usersReducer = (state = initialState, action) => {
+export type InitialStateType = typeof initialState
+
+const usersReducer = (state = initialState, action: any): InitialStateType => {
   switch (action.type) {
 
     case FOLLOW:
@@ -89,15 +94,56 @@ const usersReducer = (state = initialState, action) => {
   }
 }
 
-export const followSuccess = (userId) => ({ type: FOLLOW, userId });
-export const unfollowSuccess = (userId) => ({ type: UNFOLLOW, userId });
-export const setUsers = (users) => ({ type: SET_USERS, users });
-export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
-export const setTotalCount = (count) => ({ type: SET_TOTAL_COUNT, count });
-export const toggleIsFetching = (isFetching) => ({ type: SET_IS_FETCHING, isFetching });
-export const toggleIsFollowingProgress = (isFollowingProgress, userId) => ({ type: SET_IS_FOLLOWING_PROGRESS, isFollowingProgress, userId });
+type FollowSuccessType = {
+  type: typeof FOLLOW
+  userId: number
+}
+export const followSuccess = (userId: number): FollowSuccessType => ({ type: FOLLOW, userId });
 
-export const getUsers = (currentPage, pageSize) => async (dispatch) => {
+type UnfollowSuccessType = {
+  type: typeof UNFOLLOW
+  userId: number
+}
+export const unfollowSuccess = (userId: number): UnfollowSuccessType => ({ type: UNFOLLOW, userId });
+
+type SetUsersType = {
+  type: typeof SET_USERS
+  users: Array<UsersType>
+}
+export const setUsers = (users: Array<UsersType>): SetUsersType => ({ type: SET_USERS, users });
+
+type SetCurrentPageType = {
+  type: typeof SET_CURRENT_PAGE
+  currentPage: number
+}
+export const setCurrentPage = (currentPage: number): SetCurrentPageType => ({
+  type: SET_CURRENT_PAGE, currentPage
+});
+
+type SetTotalCountType = {
+  type: typeof SET_TOTAL_COUNT
+  count: number
+}
+export const setTotalCount = (count: number): SetTotalCountType => ({ type: SET_TOTAL_COUNT, count });
+
+type ToggleIsFetchingType = {
+  type: typeof SET_IS_FETCHING
+  isFetching: boolean
+}
+export const toggleIsFetching = (isFetching: boolean): ToggleIsFetchingType => ({
+  type: SET_IS_FETCHING, isFetching
+});
+
+type ToggleIsFollowingProgressType = {
+  type: typeof SET_IS_FOLLOWING_PROGRESS
+  isFollowingProgress: boolean
+  userId: number
+}
+export const toggleIsFollowingProgress = (isFollowingProgress: boolean, userId: number): ToggleIsFollowingProgressType => ({
+  type: SET_IS_FOLLOWING_PROGRESS, isFollowingProgress, userId
+});
+
+export const getUsers = (currentPage: number, pageSize: number) => async (dispatch: any) => {
   dispatch(toggleIsFetching(true));
   const data = await usersAPI.getUsers(currentPage, pageSize)
   dispatch(setUsers(data.items)); //получаем данные с сервера 
@@ -105,7 +151,7 @@ export const getUsers = (currentPage, pageSize) => async (dispatch) => {
   dispatch(setTotalCount(data.totalCount));
 }
 
-export const unfollow = (userId) => async (dispatch) => {
+export const unfollow = (userId: number) => async (dispatch: any) => {
   dispatch(toggleIsFollowingProgress(true, userId))
   const data = await usersAPI.unfollow(userId)
   if (data.resultCode == 0) {
@@ -114,7 +160,7 @@ export const unfollow = (userId) => async (dispatch) => {
   dispatch(toggleIsFollowingProgress(false, userId))
 }
 
-export const follow = (userId) => async (dispatch) => {
+export const follow = (userId: number) => async (dispatch: any) => {
   dispatch(toggleIsFollowingProgress(true, userId))
   const data = await usersAPI.follow(userId)
   if (data.resultCode == 0) {

@@ -14,7 +14,7 @@ const Navbar = () => {
       </div>
       <div className={ObjectStyle.item}>
         <NavLink to='/dialogs' className={Selected}>
-          Massages
+          Messages
         </NavLink>
       </div>
       <div className={ObjectStyle.item}>

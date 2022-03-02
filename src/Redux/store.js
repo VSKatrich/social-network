@@ -6,9 +6,9 @@ let store = {
   _state: {
     profilePage: {
       posts: [
-        { id: 1, massage: 'Hallo! My name is Victoria.', likesCount: 23 },
-        { id: 2, massage: 'What are you doing now?', likesCount: 34 },
-        { id: 3, massage: 'What are you doing now?', likesCount: 37 },
+        { id: 1, message: 'Hallo! My name is Victoria.', likesCount: 23 },
+        { id: 2, message: 'What are you doing now?', likesCount: 34 },
+        { id: 3, message: 'What are you doing now?', likesCount: 37 },
       ],
       newPostText: 'titi-miti'
     },
@@ -20,14 +20,14 @@ let store = {
         { id: 4, name: 'Victoria', image: 'https://cdn3.vectorstock.com/i/1000x1000/20/67/woman-avatar-profile-vector-21372067.jpg' },
         { id: 5, name: 'Liza', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGCQgVvWlH2SmL03iIX5K6V_Vkty9yBI5S0w&usqp=CAU' }
       ],
-      massages: [
-        { id: 1, massage: "Hi! It's snowing now!" },
-        { id: 2, massage: "I'm living in Saint-Petersburg" },
-        { id: 3, massage: "Give me a money" },
-        { id: 4, massage: "I'm living in Saint-Petersburg" },
-        { id: 5, massage: 'WOW!' }
+      messages: [
+        { id: 1, message: "Hi! It's snowing now!" },
+        { id: 2, message: "I'm living in Saint-Petersburg" },
+        { id: 3, message: "Give me a money" },
+        { id: 4, message: "I'm living in Saint-Petersburg" },
+        { id: 5, message: 'WOW!' }
       ],
-      newMassageText: ''
+      newMessageText: ''
     },
     sidebarPage: {
 

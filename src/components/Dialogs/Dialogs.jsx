@@ -1,25 +1,25 @@
 import React from 'react';
 import Dialog from './Dialog/Dialog';
-import ObjStyle from './Dialogs.module.css'
-import Massage from './Massage/Massage';
-import SendMassageForm from './Massage/SendMassageForm';
+import ObjStyle from './Dialogs.module.css';
+import Message from './Message/Message';
+import SendMessageForm from './Message/SendMessageForm';
 
-const Dialogs = ({ dialogsPage, sendMassage }) => {
+const Dialogs = ({ dialogsPage, sendMessage }) => {
   let DialogElements = dialogsPage.dialogs.map(d => <Dialog id={d.id} name={d.name} image={d.image} key={d.id} />);
-  let MassageElements = dialogsPage.massages.map(m => <Massage massage={m.massage} key={m.id} />);
+  let MessageElements = dialogsPage.messages.map(m => <Message message={m.message} key={m.id} />);
 
   return (
     <div className={ObjStyle.dialogs}>
       <div className={ObjStyle.dialogItems}>
         {DialogElements}
       </div>
-      <div className={ObjStyle.massageItems}>
+      <div className={ObjStyle.messageItems}>
         <div>
-          {MassageElements}
+          {MessageElements}
         </div>
-        <div className={ObjStyle.addMassage} >
+        <div className={ObjStyle.addMessage} >
         </div>
-        <SendMassageForm sendMassage={sendMassage} />
+        <SendMessageForm sendMessage={sendMessage} />
       </div>
     </div >
   )

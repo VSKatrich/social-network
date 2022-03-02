@@ -31,11 +31,11 @@
   color: rgb(223, 183, 255);
 }
 
-.massageItems {
+.messageItems {
   margin-left: 30px;
 }
 
-.massage {
+.message {
   font: Graphik;
   font-style: normal;
   font-weight: normal;
@@ -43,11 +43,11 @@
   line-height: 70px;
   color: #1f140e;
 }
-.addMassage area {
+/* .addMessage area {
   width: 50px;
-}
+} */
 
-.addMassage button {
+/* .addMessage button {
   background-color: #86614c;
   color: white;
   border: cornflowerblue;
@@ -58,6 +58,6 @@
   font-size: 16px;
   border-radius: 4px;
 }
-.addMassage button:hover {
+.addMessage button:hover {
   background-color: #69442e;
-}
+} */

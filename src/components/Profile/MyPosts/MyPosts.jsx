@@ -4,7 +4,7 @@ import AddPostForm from './Post/AddPostForm';
 import Post from './Post/Post';
 const MyPosts = (props) => {
 
-  let PostElements = [...props.posts].reverse().map(p => <Post massage={p.massage} likesCount={p.likesCount} key={p.id} />)
+  let PostElements = [...props.posts].reverse().map(p => <Post message={p.message} likesCount={p.likesCount} key={p.id} />)
 
   return (
     <div className={ObjectStyle.content}>

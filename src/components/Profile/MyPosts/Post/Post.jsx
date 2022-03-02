@@ -4,7 +4,7 @@ const Post = (props) => {
     <div className={ObjectStyle.item}>
       <div>
         <img src='https://previews.123rf.com/images/meysye/meysye1904/meysye190400002/121250278-female-silhoutte-avatar-default-avatar-profile-picture-photo-placeholder.jpg'></img>
-        {props.massage}
+        {props.message}
       </div>
       <div>
         <span>like </span>
