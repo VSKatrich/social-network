@@ -1,9 +1,12 @@
 import ObjStyle from './../Dialogs.module.css'
 
-const Message = (props) => {
+type MessageType = {
+  message: string
+}
+const Message = ({ message }: MessageType): JSX.Element => {
   return (
     <div className={ObjStyle.message}>
-      {props.message}
+      {message}
     </div>
   )
 };

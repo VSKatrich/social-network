@@ -1,6 +1,10 @@
+import React from 'react'
+import { FieldRenderProps } from 'react-final-form'
 import style from './FormComponents.module.css'
 
-export const Textarea = ({ input, meta: { error, touched } }) => {
+type InputProps = FieldRenderProps<string, any>
+
+export const Textarea = ({ input, meta: { error, touched } }: InputProps): JSX.Element => {
   return (
     <div className={style.formComponent + ' ' + (error && touched ? style.error : ' ')}>
       <textarea {...input} />
@@ -14,7 +18,7 @@ export const Textarea = ({ input, meta: { error, touched } }) => {
   )
 }
 
-export const Input = ({ input, meta: { error, touched } }) => {
+export const Input = ({ input: { ...input }, meta: { error, touched } }: InputProps): JSX.Element => {
   return (
     <div className={style.formComponent + ' ' + (error && touched ? style.error : ' ')}>
       <input {...input} />

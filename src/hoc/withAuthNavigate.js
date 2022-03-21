@@ -8,8 +8,8 @@ let mapStateToProps = (state) => {
 }
 
 export const withAuthNavigate = (Component) => {
-  const NavigateComponent = (props) => {
-    if (!props.isAuth) return <Navigate to='/login' />
+  const NavigateComponent = ({ isAuth, ...props }) => {
+    if (!isAuth) return <Navigate to='/login' />
 
     return <Component {...props} />
   }

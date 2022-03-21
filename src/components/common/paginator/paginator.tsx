@@ -1,8 +1,16 @@
-import { useState } from 'react';
-import styleObj from './paginator.module.css';
 import cn from 'classnames';
+import React, { useState } from 'react';
+import styleObj from './paginator.module.css';
 
-const Paginator = ({ pageSize, totalItemsCount, onClickChange, currentPage, portionSize = 20 }) => {
+type PropsType = {
+  pageSize: number
+  totalItemsCount: number
+  onClickChange: (pageNumber: number) => void
+  currentPage: number
+  portionSize?: number
+}
+
+const Paginator = ({ pageSize, totalItemsCount, onClickChange, currentPage, portionSize = 20 }: PropsType): JSX.Element => {
   const pages = [];
   const pagesCount = Math.ceil(totalItemsCount / pageSize)
   for (let i = 1; i <= pagesCount; i++) {
@@ -39,3 +47,4 @@ const Paginator = ({ pageSize, totalItemsCount, onClickChange, currentPage, port
 };
 
 export default Paginator;
+

@@ -2,10 +2,14 @@ import { Field, Form } from "react-final-form";
 import { Textarea } from "../../FormComponents/FormComponents";
 import { composeValidators, maxLengthCreator } from "../../utils/validators/validators";
 
-const sendMessageForm = (props) => {
+type SendMessageFormType = {
+  sendMessage: (newMessage: string) => void
+}
 
-  const onSubmit = (formData, form) => {
-    props.sendMessage(formData.messageBody);
+const sendMessageForm = ({ sendMessage }: SendMessageFormType): JSX.Element => {
+
+  const onSubmit = (formData: { messageBody: string }, form: any) => {
+    sendMessage(formData.messageBody);
     form.reset();
   };
 

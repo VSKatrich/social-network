@@ -1,3 +1,4 @@
+
 export type PostsType = {
   id: number
   message: string
@@ -33,3 +34,4 @@ export type UsersType = {
   photos: PhotosType
   followed: boolean
 }
+
