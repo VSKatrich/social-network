@@ -1,14 +1,20 @@
 import ObjectStyle from './Post.module.css';
-const Post = (props) => {
+
+type PropsType = {
+  message: string
+  likesCount: number
+}
+
+const Post = ({ message, likesCount }: PropsType): JSX.Element => {
   return (
     <div className={ObjectStyle.item}>
       <div>
         <img src='https://previews.123rf.com/images/meysye/meysye1904/meysye190400002/121250278-female-silhoutte-avatar-default-avatar-profile-picture-photo-placeholder.jpg'></img>
-        {props.message}
+        {message}
       </div>
       <div>
         <span>like </span>
-        {props.likesCount}
+        {likesCount}
       </div>
     </div>
   );

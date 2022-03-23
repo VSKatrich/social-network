@@ -13,8 +13,15 @@ import ProfileContainerHook from './components/Profile/ProfileContainerHook';
 import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContainer';
 import { InitializationApp } from './Redux/app-reducer';
+import { AppStateType } from './Redux/redux-store';
 
-class App extends React.Component {
+type StateToProps = ReturnType<typeof mapStateToProps>
+type DispatchToProps = {
+  InitializationApp: () => void
+}
+
+class App extends React.Component<StateToProps & DispatchToProps> {
+
 
   componentDidMount() {
     this.props.InitializationApp();
@@ -46,7 +53,7 @@ class App extends React.Component {
 
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: AppStateType) => ({
   initialization: state.app.initialization
 })
 

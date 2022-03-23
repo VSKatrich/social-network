@@ -3,7 +3,7 @@ import ObjectStyle from './Navbar.module.css';  //создаем объект, �
 
 const Navbar = () => {
 
-  const Selected = ({ isActive }) => isActive ? ObjectStyle.active : '';
+  const Selected = ({ isActive }: any) => isActive ? ObjectStyle.active : '';
 
   return (
     <nav className={ObjectStyle.sidebar}>

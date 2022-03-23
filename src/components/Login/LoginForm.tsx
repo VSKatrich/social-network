@@ -33,13 +33,13 @@ const LoginForm = ({ onSubmit, errorMessage }: LoginFormType): JSX.Element => {
                 disabled={submitting || pristine}
               >
                 Login</button>
-              {/* <button
+              <button
                 type="button"
-                onClick={form.reset}
+                onClick={() => form.reset()}
                 disabled={submitting || pristine}
               >
                 Reset
-              </button> */}
+              </button>
             </div>
           </form>
         )}

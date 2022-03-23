@@ -9,7 +9,7 @@ type PropsType = {
   addPost: (postBody: string) => void
 }
 
-const MyPosts: FC<PropsType> = ({ posts, addPost }) => {
+const MyPosts = ({ posts, addPost }: PropsType): JSX.Element => {
 
   let PostElements = [...posts].reverse().map(p => <Post message={p.message} likesCount={p.likesCount} key={p.id} />)
 

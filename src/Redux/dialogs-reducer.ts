@@ -25,8 +25,7 @@ let initialState = {
     { id: 3, message: "Give me a money" },
     { id: 4, message: "I'm living in Saint-Petersburg" },
     { id: 5, message: 'WOW!' }
-  ] as Array<MessagesType>,
-  newMessageText: '' as string
+  ] as Array<MessagesType>
 };
 
 export type InitialStateDialogsReducer = typeof initialState

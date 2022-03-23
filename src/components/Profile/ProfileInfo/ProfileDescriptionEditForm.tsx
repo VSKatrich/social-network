@@ -1,11 +1,17 @@
 import { Field, Form } from "react-final-form";
+import { ProfileType } from "../../../types/types";
 import { Input } from "../../FormComponents/FormComponents";
 import { composeValidators, maxLengthCreator, required } from "../../utils/validators/validators";
-import style from './ProfileInfo.module.css'
+import style from './ProfileInfo.module.css';
 
-const EditDescriptionForm = ({ updateUserData, profile, setEditMode }) => {
+type PropsType = {
+  updateUserData: (userData: ProfileType) => void
+  setEditMode: (editMode: boolean) => void
+  profile: ProfileType
+}
+const EditDescriptionForm = ({ updateUserData, profile, setEditMode }: PropsType): JSX.Element => {
 
-  const onSubmit = (formData, form) => {
+  const onSubmit = (formData: ProfileType) => {
     updateUserData(formData);
     setEditMode(false)
   };
@@ -36,7 +42,7 @@ const EditDescriptionForm = ({ updateUserData, profile, setEditMode }) => {
                 <b>Contacts:</b>
                 {Object.keys(profile.contacts).map(key => {
                   return (
-                    <div className={style.contact}>
+                    <div className={style.contact} key={key}>
                       {key}: <Field name={'contacts.' + key}
                         component={Input}
                         validate={composeValidators(maxLengthCreator(100))} />

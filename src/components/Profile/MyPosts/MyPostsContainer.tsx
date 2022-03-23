@@ -15,9 +15,5 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
   posts: state.profilePage.posts
 })
 
-const mapDispatchToProps = (dispatch: any): MapDispatchToProps => ({
-  addPost: (postBody) => dispatch(actions.addPost(postBody))
-})
-
 export default connect<MapStateToPropsType, MapDispatchToProps, {}, AppStateType>
-  (mapStateToProps, mapDispatchToProps)(MyPosts);
+  (mapStateToProps, { addPost: actions.addPost })(MyPosts);

@@ -1,6 +1,10 @@
+import { ContactsType, ProfileType } from '../../../types/types'
 import style from './ProfileInfo.module.css'
 
-const ProfileDescription = ({ profile }) => {
+type PropsType = {
+  profile: ProfileType
+}
+const ProfileDescription = ({ profile }: PropsType): JSX.Element => {
 
   return (
     <div>
@@ -16,7 +20,7 @@ const ProfileDescription = ({ profile }) => {
         </div>
         <div>
           <b>Contacts</b>: {Object.keys(profile.contacts).map(key => {
-            return <Contact key={key} contactTitle={key} contactKey={profile.contacts[key]} />
+            return <Contact key={key} contactTitle={key} contactKey={profile.contacts[key as keyof ContactsType]} />
           })}
         </div>
       </div>
@@ -24,7 +28,11 @@ const ProfileDescription = ({ profile }) => {
   )
 }
 
-const Contact = ({ contactTitle, contactKey }) => {
+type ContactPropsType = {
+  contactTitle: string
+  contactKey: string
+}
+const Contact = ({ contactTitle, contactKey }: ContactPropsType): JSX.Element => {
   return (
     <div className={style.contact} >
       {contactTitle} : {contactKey}

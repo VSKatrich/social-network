@@ -57,7 +57,7 @@ export const getUserProfile = (userId: number | null): ThunkType => async (dispa
   const data = await profileAPI.getUserProfile(userId)
   dispatch(actions.setUsersProfile(data));
 }
-export const getUserStatus = (userId: number): ThunkType => async (dispatch) => {
+export const getUserStatus = (userId: number | null): ThunkType => async (dispatch) => {
   const data = await profileAPI.getUserStatus(userId)
   dispatch(actions.setUsersStatus(data));
 }

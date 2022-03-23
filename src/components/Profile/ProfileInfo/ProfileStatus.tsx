@@ -1,27 +1,31 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 
-const ProfileStatus = (props) => {
+type PropsType = {
+  status: string
+  updateUserStatus: (status: string) => void
+}
+const ProfileStatus = ({ status, updateUserStatus }: PropsType): JSX.Element => {
   const [editMode, setEditMode] = useState(false);
-  const [status, setStatus] = useState(props.status);
+  const [statusUS, setStatus] = useState(status);
 
   const activateInputValue = () => {
     setEditMode(true)
   }
 
-  const onStatusChange = (e) => {
+  const onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
     setStatus(e.target.value)
   }
 
   const deactivateInputValue = () => {
     setEditMode(false)
-    props.updateUserStatus(status)
+    updateUserStatus(statusUS)
   }
 
   useEffect(() => {
-    setStatus(props.status)
-  }, [props.status])
+    setStatus(status)
+  }, [status])
 
   return (
     <div>
@@ -31,11 +35,11 @@ const ProfileStatus = (props) => {
             onChange={onStatusChange}
             autoFocus={true}
             onBlur={deactivateInputValue}
-            value={status} ></input>
+            value={statusUS} ></input>
         </div>
         :
         <div>
-          <span onDoubleClick={activateInputValue} > {props.status || 'status'} </span>
+          <span onDoubleClick={activateInputValue} > {status || 'status'} </span>
         </div>
       }
 

@@ -19,7 +19,7 @@ type MapStateToPropsType = {
   status: string
 }
 type MapDispatchToProps = {
-  getUserStatus: (userId: number) => void
+  getUserStatus: (userId: number | null) => void
   updateUserStatus: (status: string) => void
   updateMainPhoto: (photo: any) => void
   updateUserData: (userData: ProfileType) => void
