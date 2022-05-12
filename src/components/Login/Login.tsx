@@ -1,8 +1,9 @@
 import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { login } from "../../Redux/auth-reducer";
-import { AppStateType } from "../../Redux/redux-store";
+import { login } from "../../Store/auth-reducer";
+import { AppStateType } from "../../Store/redux-store";
 import LoginForm from "./LoginForm";
+import st from './Login.module.css';
 
 type StateToPropsType = {
   isAuth: boolean
@@ -26,7 +27,7 @@ const Login = ({ login, isAuth, errorMessage }: StateToPropsType & DispatchProps
   if (isAuth) return <Navigate to='/profile/me' />
 
   return (
-    <div>
+    <div className={st.box} >
       <LoginForm onSubmit={onSubmit} errorMessage={errorMessage} />
     </div>
   )

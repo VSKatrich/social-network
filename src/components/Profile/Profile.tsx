@@ -1,6 +1,7 @@
 import { ProfileType } from '../../types/types';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
+import st from './Profile.module.css'
 
 type PropsType = {
   profile: ProfileType | null
@@ -12,8 +13,9 @@ type PropsType = {
 }
 
 const Profile = ({ profile, status, updateUserStatus, isOwner, updateMainPhoto, updateUserData }: PropsType): JSX.Element => {
+
   return (
-    <div>
+    <div className={st.container}>
       <ProfileInfo
         profile={profile}
         status={status}

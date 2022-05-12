@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { actions } from '../../../Redux/profile-reducer';
-import { AppStateType } from '../../../Redux/redux-store';
+import { actions } from '../../../Store/profile-reducer';
+import { AppStateType } from '../../../Store/redux-store';
 import { PostsType } from '../../../types/types';
 import MyPosts from './MyPosts';
 

@@ -35,43 +35,36 @@ const ProfileInfo = ({
   }
 
   return (
-    <div>
-      <div className={ObjStyle.wallPaper} >
-        <img src='https://cdn.wallpaperhub.app/cloudcache/d/3/c/2/b/f/d3c2bf863b952ad8d93816729ce85bb0bbebcbc8.png' />
-      </div>
-
-      <div className={ObjStyle.profileCard}>
-        <div className={ObjStyle.mainImage}>
-          <div>
-            <img src={profile.photos.large || imgUser} />
-          </div>
-          <div>
-            {isOwner && <input type='file' onChange={onMainPhotoSelected} />}
-          </div>
-        </div>
-
-        <div className={ObjStyle.description} >
-          <div className={ObjStyle.fullName}>
-            {profile.fullName}
-          </div>
-          <ProfileStatus
-            status={status}
-            updateUserStatus={updateUserStatus} />
-
-          {editMode
-            ? <EditDescriptionForm updateUserData={updateUserData}
-              profile={profile}
-              setEditMode={setEditMode} />
-
-            : <ProfileDescription profile={profile} />}
-        </div>
-
+    <div className={ObjStyle.profileCard}>
+      <div className={ObjStyle.mainImage}>
         <div>
-          {isOwner && !editMode && <button onClick={() => { setEditMode(true) }} >edit card</button>}
+          <img src={profile.photos.large || imgUser} />
+        </div>
+        <div>
+          {isOwner && <input type='file' onChange={onMainPhotoSelected} />}
         </div>
       </div>
 
-    </div >
+      <div className={ObjStyle.description} >
+        <div className={ObjStyle.fullName}>
+          {profile.fullName}
+        </div>
+        <ProfileStatus
+          status={status}
+          updateUserStatus={updateUserStatus} />
+
+        {editMode
+          ? <EditDescriptionForm updateUserData={updateUserData}
+            profile={profile}
+            setEditMode={setEditMode} />
+
+          : <ProfileDescription profile={profile} />}
+      </div>
+
+      <div>
+        {isOwner && !editMode && <button onClick={() => { setEditMode(true) }} >edit card</button>}
+      </div>
+    </div>
   );
 }
 

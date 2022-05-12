@@ -1,5 +1,5 @@
 import React from "react";
-import { AppStateType } from "../../Redux/redux-store";
+import { AppStateType } from "../../Store/redux-store";
 import { ProfileType } from "../../types/types";
 import Profile from "./Profile";
 
@@ -34,17 +34,15 @@ class ProfileContainer extends React.Component<PropsType> {
 
   render() {
     return (
-      <div>
-        <Profile
-          {...this.props}
-          profile={this.props.profile}
-          status={this.props.status}
-          updateUserStatus={this.props.updateUserStatus}
-          isOwner={this.props.isOwner}
-          updateMainPhoto={this.props.updateMainPhoto}
-          updateUserData={this.props.updateUserData}
-        />
-      </div>
+      <Profile
+        {...this.props}
+        profile={this.props.profile}
+        status={this.props.status}
+        updateUserStatus={this.props.updateUserStatus}
+        isOwner={this.props.isOwner}
+        updateMainPhoto={this.props.updateMainPhoto}
+        updateUserData={this.props.updateUserData}
+      />
     )
   }
 }

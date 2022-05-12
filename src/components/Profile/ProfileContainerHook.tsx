@@ -6,9 +6,9 @@ import {
   getUserProfile,
   getUserStatus, updateMainPhoto,
   updateUserData, updateUserStatus
-} from '../../Redux/profile-reducer';
-import { AppStateType } from '../../Redux/redux-store';
-import { getMyId } from '../../Redux/selectors';
+} from '../../Store/profile-reducer';
+import { AppStateType } from '../../Store/redux-store';
+import { getMyId } from '../../Store/selectors';
 import { ProfileType } from '../../types/types';
 import ProfileContainer from './ProfileContainerClass';
 

@@ -12,8 +12,8 @@ import News from './components/News/News';
 import ProfileContainerHook from './components/Profile/ProfileContainerHook';
 import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContainer';
-import { InitializationApp } from './Redux/app-reducer';
-import { AppStateType } from './Redux/redux-store';
+import { InitializationApp } from './Store/app-reducer';
+import { AppStateType } from './Store/redux-store';
 
 type StateToProps = ReturnType<typeof mapStateToProps>
 type DispatchToProps = {
@@ -21,7 +21,6 @@ type DispatchToProps = {
 }
 
 class App extends React.Component<StateToProps & DispatchToProps> {
-
 
   componentDidMount() {
     this.props.InitializationApp();
@@ -33,8 +32,9 @@ class App extends React.Component<StateToProps & DispatchToProps> {
     return (
       <div className='app-wrapper' >
         <HeaderContainer />
-        <Navbar />
         <div className='app-wrapper-content'>
+          <Navbar />
+          {/* <div className='app-wrapper-content'> */}
           <Routes>
             <Route path="/" element={<Navigate to='/profile/me' />} />
             <Route path="/profile/:userId" element={<ProfileContainerHook />} />
@@ -46,11 +46,11 @@ class App extends React.Component<StateToProps & DispatchToProps> {
             <Route path="/login" element={<Login />} />
             <Route path="*" element={<div>Sorry, this page isn't available. </div>} />
           </Routes>
+          {/* </div> */}
         </div>
       </div>
     );
   }
-
 }
 
 const mapStateToProps = (state: AppStateType) => ({

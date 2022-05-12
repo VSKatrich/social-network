@@ -1,6 +1,7 @@
 import React from 'react';
 import { UsersType } from '../../types/types';
 import Paginator from '../common/paginator/paginator';
+import SearchUsersForm from './SearchUsersForm';
 import User from './User';
 import styleObj from './Users.module.css';
 
@@ -17,7 +18,8 @@ type PropsType = {
 
 const Users: React.FC<PropsType> = ({ totalCount, pageSize, onClickChange, currentPage, users, isFollowingProgress, follow, unfollow }) => {
   return (
-    <div>
+    <div >
+      <SearchUsersForm />
       <Paginator totalItemsCount={totalCount}
         pageSize={pageSize}
         onClickChange={onClickChange}

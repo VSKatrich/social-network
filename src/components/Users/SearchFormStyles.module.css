@@ -1,0 +1,15 @@
+.button {
+  margin-left: 15px;
+  color: #fff;
+  border: none;
+  background-color: rgb(40, 15, 1);
+  font-size: 13px;
+  font-family: inherit;
+  padding: 4px 13px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.8;
+}

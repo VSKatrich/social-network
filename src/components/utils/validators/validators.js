@@ -6,12 +6,6 @@ export const maxLengthCreator = (maxLength) => (value) => {
   )
 }
 
-// export const minValue = min => value => {
-//   return (
-//     isNaN(value) || value.length >= min ? undefined : `Should be greater than ${min}`
-//   )
-// }
-
 export const composeValidators = (...validators) => value =>
   validators.reduce((error, validator) => error || validator(value), undefined)
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { UsersType } from '../../types/types';
 import imgUser from './../../assets/images/imgUser.png';
+import st from './Users.module.css'
 
 type PropsType = {
   user: UsersType
@@ -19,14 +20,16 @@ const User: React.FC<PropsType> = ({ user, isFollowingProgress, unfollow, follow
             <img src={(user.photos.small != null) ? user.photos.small : imgUser} />
           </NavLink>
         </div>
-        <div>
+        <div >
           {user.followed ? (
             <button
+              className={st.button_unfollow}
               disabled={isFollowingProgress.some(id => id === user.id)}
               onClick={() => { unfollow(user.id) }} >
               Unfollow </button>
           ) : (
             <button
+              className={st.button_follow}
               disabled={isFollowingProgress.some(id => id === user.id)}
               onClick={() => { follow(user.id) }} >
               Follow </button>

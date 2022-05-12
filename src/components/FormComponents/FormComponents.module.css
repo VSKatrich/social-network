@@ -1,12 +1,20 @@
 .formComponent textarea,
 .formComponent input {
-  border: solid rgb(225, 196, 65) 2px;
+  width: 100%;
+  border-radius: 6px;
+  border: solid rgb(207, 207, 206) 1px;
+  margin-bottom: 10px;
+  padding: 7px;
+  outline-color: #4294e0;
+  color: #422f24;
+  background-color: rgb(243, 240, 240);
+  font: inherit;
 }
 
 .formComponent.error textarea {
-  border: solid red 2px;
+  border: solid #ff272780 1px;
 }
 
 .formComponent.error input {
-  border: solid rgb(204, 0, 255) 2px;
+  border: solid #ff272780 1px;
 }

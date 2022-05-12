@@ -1,6 +1,6 @@
 import { AnyAction } from 'redux';
 import { ResultCodesEnum, usersAPI } from "../api/api";
-import { UsersType } from './../types/types';
+import { UsersType } from '../types/types';
 import { BaseThunkType, InferActionsTypes } from './redux-store';
 
 const initialState = {

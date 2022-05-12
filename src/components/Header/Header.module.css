@@ -1,24 +1,43 @@
-.header {
-  grid-area: hd;
+.banner {
   background-color: rgb(40, 15, 1);
+}
 
-  /* READ ABOUT THIS */
+.header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-right: 20px;
+  padding-right: 15px;
+  width: 960px;
+  margin: auto;
 }
 
 .header img {
   width: 100px;
 }
 
-.login a {
-  color: blanchedalmond;
+.login {
+  display: flex;
+  flex-direction: row;
+  color: rgb(219, 218, 206);
 }
 
-.login {
-  color: rgb(237, 228, 100);
-  display: flex;
+.login a {
+  color: inherit;
+}
+
+.button {
+  color: inherit;
+  margin-left: 15px;
+  border: none;
+  background-color: rgb(116, 89, 87);
+  font-size: 15px;
+  font-family: inherit;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.8;
 }

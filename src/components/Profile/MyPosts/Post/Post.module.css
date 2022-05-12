@@ -10,3 +10,23 @@
   border-radius: 30px;
   margin-right: 10px;
 }
+
+.button {
+  margin-bottom: 15px;
+  color: #fff;
+  border: none;
+  background-color: rgb(40, 15, 1);
+  font-size: 15px;
+  font-family: inherit;
+  padding: 6px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.addPost {
+  width: 50%;
+}

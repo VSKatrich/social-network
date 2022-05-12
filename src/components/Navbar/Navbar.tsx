@@ -3,10 +3,10 @@ import ObjectStyle from './Navbar.module.css';  //создаем объект, �
 
 const Navbar = () => {
 
-  const Selected = ({ isActive }: any) => isActive ? ObjectStyle.active : '';
+  const Selected = ({ isActive }: any) => isActive ? ObjectStyle.active_link : ObjectStyle.inactive_link;
 
   return (
-    <nav className={ObjectStyle.sidebar}>
+    <div className={ObjectStyle.sidebar}>
       <div className={ObjectStyle.item}>
         <NavLink to='/profile/me' className={Selected}>
           Profile
@@ -37,7 +37,7 @@ const Navbar = () => {
           Settings
         </NavLink>
       </div>
-    </nav >
+    </div >
   )
 }
 export default Navbar;

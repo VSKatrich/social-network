@@ -1,15 +1,24 @@
 .app-wrapper {
-  margin: 0 auto;
-  /* width: 1200px; */
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  grid-auto-rows: 75px 11fr;
-  grid-template-areas:
-    "hd hd"
-    "sd main";
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+  margin: auto;
+
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, Open Sans, Helvetica Neue, "Noto Sans Armenian",
+    "Noto Sans Bengali", "Noto Sans Cherokee", "Noto Sans Devanagari", "Noto Sans Ethiopic", "Noto Sans Georgian",
+    "Noto Sans Hebrew", "Noto Sans Kannada", "Noto Sans Khmer", "Noto Sans Lao", "Noto Sans Osmanya", "Noto Sans Tamil",
+    "Noto Sans Telugu", "Noto Sans Thai", sans-serif;
+  font-size: 15px;
+  background-color: #edeef0;
 }
 
 .app-wrapper-content {
-  grid-area: main;
-  background-color: rgb(240, 239, 204);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 960px;
+  max-width: 960px;
+  padding-top: 15px;
+  margin: auto;
+  box-sizing: border-box;
 }

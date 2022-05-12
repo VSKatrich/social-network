@@ -1,23 +1,29 @@
 .sidebar {
-  grid-area: sd;
-  background: #d7c8bc;
-  padding: 40px;
-}
-.item {
-  line-height: 20px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 20px 40px;
+  align-self: start;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(185, 183, 183, 0.3);
+  width: 180px;
+  box-sizing: border-box;
 }
 
-.item a {
-  font: Graphik;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 32px;
+.item {
+  margin-bottom: 10px;
+}
+
+.inactive_link {
+  font: inherit;
+  font-size: 17px;
   color: #422f24;
   text-decoration: none;
 }
 
-.item a.active {
-  color: rgb(245, 243, 250);
-  text-shadow: 5px 5px 20px rgba(75, 16, 16, 0.89);
+.active_link {
+  font: inherit;
+  font-size: 17px;
+  text-decoration: none;
+  color: rgb(173, 96, 83);
 }

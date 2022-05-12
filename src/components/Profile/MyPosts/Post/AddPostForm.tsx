@@ -3,6 +3,8 @@ import { FormApi } from "final-form";
 import { Field, Form } from "react-final-form";
 import { Textarea } from "../../../FormComponents/FormComponents";
 import { composeValidators, maxLengthCreator, required } from "../../../utils/validators/validators";
+import st from './../../../Login/Login.module.css'
+import postStyle from './Post.module.css'
 
 type PropsType = {
   addPost: (postBody: string) => void
@@ -23,15 +25,15 @@ const AddPostForm = ({ addPost }: PropsType): JSX.Element => {
       {
         ({ handleSubmit }) => (
           <form onSubmit={handleSubmit} >
-            <div>
+            <div className={postStyle.addPost} >
               <Field
                 name='postBody'
                 component={Textarea}
-                validate={composeValidators(maxLengthCreator(10))} />
+                validate={composeValidators(maxLengthCreator(100), required)} />
             </div>
-            <div>
-              <button type="submit"> Add post</button>
-            </div>
+
+            <button className={postStyle.button} type="submit"> Add post</button>
+
           </form>
         )
       }

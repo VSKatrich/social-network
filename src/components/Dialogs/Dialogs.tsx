@@ -1,4 +1,4 @@
-import { InitialStateDialogsReducer } from '../../Redux/dialogs-reducer';
+import { InitialStateDialogsReducer } from '../../Store/dialogs-reducer';
 import Dialog from './Dialog/Dialog';
 import ObjStyle from './Dialogs.module.css';
 import Message from './Message/Message';

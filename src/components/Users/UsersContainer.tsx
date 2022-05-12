@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { AppStateType } from "../../Redux/redux-store";
-import { actions, follow, getUsers, unfollow } from "../../Redux/users-reducer";
+import { AppStateType } from "../../Store/redux-store";
+import { actions, follow, getUsers, unfollow } from "../../Store/users-reducer";
 import { UsersType } from "../../types/types";
 import Preloader from "../common/preloader/Preloader";
 import Users from './Users';
@@ -12,7 +12,8 @@ import {
   getPageSize,
   getTotalCount,
   getUsersInState
-} from './../../Redux/selectors';
+} from '../../Store/selectors';
+import styleObj from './Users.module.css';
 
 type PropsStateType = {
   currentPage: number
@@ -22,14 +23,12 @@ type PropsStateType = {
   totalCount: number
   isFollowingProgress: Array<number>
 }
-
 type PropsDispatchType = {
   getUsers: (currentPage: number, pageSize: number) => void
   setCurrentPage: (pageNumber: number) => void
   follow: (userId: number) => void
   unfollow: (userId: number) => void
 }
-
 type PropsType = PropsStateType & PropsDispatchType
 
 class UsersAPIcomponent extends React.Component<PropsType> {
@@ -45,7 +44,7 @@ class UsersAPIcomponent extends React.Component<PropsType> {
 
   render() {
     return (
-      <>
+      <div className={styleObj.container}>
         <div>{this.props.isFetching ? <Preloader /> : null}</div>
 
         <Users onClickChange={this.onClickChange}
@@ -56,7 +55,7 @@ class UsersAPIcomponent extends React.Component<PropsType> {
           totalCount={this.props.totalCount}
           pageSize={this.props.pageSize}
           isFollowingProgress={this.props.isFollowingProgress} />
-      </>
+      </div>
     )
   };
 }
