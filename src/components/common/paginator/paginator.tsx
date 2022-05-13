@@ -10,7 +10,7 @@ type PropsType = {
   portionSize?: number
 }
 
-const Paginator = ({ pageSize, totalItemsCount, onClickChange, currentPage, portionSize = 20 }: PropsType): JSX.Element => {
+const Paginator = ({ pageSize, totalItemsCount, onClickChange, currentPage, portionSize = 10 }: PropsType): JSX.Element => {
   const pages = [];
   const pagesCount = Math.ceil(totalItemsCount / pageSize)
   for (let i = 1; i <= pagesCount; i++) {
@@ -25,21 +25,21 @@ const Paginator = ({ pageSize, totalItemsCount, onClickChange, currentPage, port
   return (
     <div className={styleObj.paginator} >
       {portionNumber > 1 &&
-        <button onClick={() => { setPortionNumber(portionNumber - 1) }}> prev </button>}
+        <button className={styleObj.button} onClick={() => { setPortionNumber(portionNumber - 1) }}> prev </button>}
 
 
       {pages
         .filter(p => p >= leftPortionCount && p <= rightPortionCount)
         .map(p => {
-          return <span key={p}
+          return <div key={p}
             className={cn({ [styleObj.selectedPage]: currentPage === p }, styleObj.pageNumber)}
             onClick={(e) => { onClickChange(p) }}
-          > {p} </span>
+          > {p} </div>
         })}
 
       {
         portionCount > portionNumber &&
-        <button onClick={() => { setPortionNumber(portionNumber + 1) }}> next </button>
+        <button className={styleObj.button} onClick={() => { setPortionNumber(portionNumber + 1) }}> next </button>
       }
 
     </div >

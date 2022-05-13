@@ -28,6 +28,8 @@
 
 .description {
   margin-left: 40px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .aboutMe {
@@ -43,4 +45,27 @@
 
 .contact {
   padding-left: 10px;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  padding-right: 10px;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+  font-size: 14px;
+
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.item:nth-child(1) {
+  font-size: 15px;
+  font-weight: 700;
+  margin-right: 20px;
 }

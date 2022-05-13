@@ -14,7 +14,7 @@ const EditDescriptionForm = ({ updateUserData, profile, setEditMode }: PropsType
   const onSubmit = (formData: ProfileType) => {
     updateUserData(formData);
     setEditMode(false)
-  };
+  }
 
   return (
     <Form
@@ -23,31 +23,39 @@ const EditDescriptionForm = ({ updateUserData, profile, setEditMode }: PropsType
       {
         ({ handleSubmit, submitting }) => (
           <form onSubmit={handleSubmit}>
-            <div>
-              <b>Full name</b>: <Field name='fullName'
-                component={Input}
-                validate={composeValidators(maxLengthCreator(20), required)} />
-              <b>About me</b>: <Field name='aboutMe'
-                component={Input}
-                validate={composeValidators(maxLengthCreator(20), required)} />
-              <div><b>Looking for a job</b>: <Field name='lookingForAJob'
-                component='input'
-                type="checkbox"
-                validate={composeValidators(maxLengthCreator(20), required)} />
+            <div className={style.items}>
+              <div className={style.item}>
+                <div>Full name:</div>
+                <Field name='fullName'
+                  component={Input}
+                  validate={composeValidators(maxLengthCreator(20), required)} />
               </div>
-              <b>My professional skills</b>: <Field name='lookingForAJobDescription'
-                component={Input}
-                validate={composeValidators(maxLengthCreator(20), required)} />
-              <div>
-                <b>Contacts:</b>
+              <div className={style.item}>
+                <div>About me:</div> <Field name='aboutMe'
+                  component={Input}
+                  validate={composeValidators(maxLengthCreator(20), required)} />
+              </div>
+              <div className={style.item}>
+                <div>Looking for a job: </div> <Field name='lookingForAJob'
+                  component='input'
+                  type="checkbox"
+                  validate={composeValidators(maxLengthCreator(20), required)} />
+              </div>
+              <div className={style.item}>
+                <div>Professional skills:</div> <Field name='lookingForAJobDescription'
+                  component={Input}
+                  validate={composeValidators(maxLengthCreator(20), required)} />
+              </div>
+
+              <div >
+                <div>Contacts:</div>
                 {Object.keys(profile.contacts).map(key => {
                   return (
                     <div className={style.contact} key={key}>
                       {key}: <Field name={'contacts.' + key}
                         component={Input}
                         validate={composeValidators(maxLengthCreator(100))} />
-                    </div>
-                  )
+                    </div>)
                 })}
               </div>
             </div>
